@@ -97,7 +97,7 @@
       font-weight: 600;
     }
 
-     /* GRID */
+    /* GRID */
     .lb-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -146,13 +146,14 @@
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 24px;
     }
+
     /* CARD */
     .lb-card {
       background: linear-gradient(135deg, #e0eeff, #c7dcff);
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,91,234,0.10);
-      border: 1px solid #ffd700;
+      border: 2px solid #FFD700;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
@@ -163,7 +164,7 @@
     .lb-card-img {
       background: #ffffff;
       height: 260px;
-      padding: 36px 32px;
+      padding: 18px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
@@ -187,6 +188,8 @@
       font-weight: 700;
       padding: 3px 10px;
       border-radius: 50px;
+      z-index: 5;
+      box-shadow: 0 4px 10px rgba(0, 63, 163, 0.28);
     }
     .lb-card-body { padding: 18px; }
     .lb-card-body h3 { font-size: 0.98rem; font-weight: 700; color: #003fa3; margin-bottom: 6px; }
@@ -247,14 +250,17 @@
       .lb-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .lb-card-img {
       background: #ffffff;
-      height: 260px;
-      padding: 36px 32px;
+      height: 205px;
+      padding: 10px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
+      .lb-prod-img { width: 100%; height: 100%; max-width: none; transform: scale(1.16); }
       .lb-container { padding: 32px 16px 48px; }
       .lb-header { padding: 28px 16px 40px; }
-      .lb-header h1 { font-size: 1.8rem; }
+      .lb-logo-word { gap: 8px; }
+      .lb-logo-ludo { font-size: clamp(2.7rem, 15vw, 4.4rem); }
+      .lb-logo-prime { font-size: clamp(1.25rem, 7vw, 2.1rem); }
       .back-btn { font-size: 0.78rem; padding: 6px 14px; }
       .lb-badges { gap: 8px; }
       .lb-badge { font-size: 0.72rem; padding: 4px 12px; }
@@ -263,18 +269,20 @@
       .lb-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .lb-card-img {
       background: #ffffff;
-      height: 260px;
-      padding: 36px 32px;
+      height: 165px;
+      padding: 8px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
+      .lb-prod-img { width: 100%; height: 100%; max-width: none; transform: scale(1.14); }
       .lb-card-body { padding: 12px; }
       .lb-card-body h3 { font-size: 0.88rem; }
       .lb-details { font-size: 0.76rem; }
       .lb-price { font-size: 0.98rem; }
       .lb-enquire { padding: 5px 12px; font-size: 0.72rem; }
-      .lb-card-num { font-size: 0.7rem; }
-      .lb-header h1 { font-size: 1.5rem; }
+      .lb-card-num { top: 7px; left: 8px; font-size: 0.62rem; padding: 3px 8px; z-index: 6; }
+      .lb-logo-ludo { font-size: clamp(2.35rem, 15vw, 3.3rem); }
+      .lb-logo-prime { font-size: clamp(1.05rem, 7vw, 1.65rem); }
     }
     @media (max-width: 360px) {
       .lb-grid { grid-template-columns: 1fr; }
