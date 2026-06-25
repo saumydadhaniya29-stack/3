@@ -13,68 +13,154 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Poppins', sans-serif; background: #f0f6ff; color: #1e293b; }
+        /* HEADER */
     .lb-header {
-      background: linear-gradient(135deg, #0a1628, #1a3a6e, #1a6fc4);
-      padding: 32px 24px 48px; text-align: center;
-      position: relative; overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(0, 91, 234, 0.12), transparent 28%),
+        radial-gradient(circle at 84% 12%, rgba(255, 215, 0, 0.22), transparent 24%),
+        linear-gradient(135deg, #ffffff 0%, #eef7ff 52%, #dbeeff 100%);
+      padding: 32px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 5px solid #ffd700;
     }
     .lb-header::before {
-      content: ''; position: absolute;
+      content: '';
+      position: absolute;
       width: 400px; height: 400px;
-      background: rgba(255,255,255,0.05); border-radius: 50%;
+      background: rgba(0,91,234,0.08);
+      border-radius: 50%;
       top: -150px; right: -100px;
     }
     .lb-header::after {
-      content: ''; position: absolute;
+      content: '';
+      position: absolute;
       width: 250px; height: 250px;
-      background: rgba(255,255,255,0.04); border-radius: 50%;
+      background: rgba(255,215,0,0.16);
+      border-radius: 50%;
       bottom: -80px; left: -60px;
     }
     .back-btn {
-      position: absolute; top: 20px; left: 20px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff; padding: 8px 18px; border-radius: 50px;
-      font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: background 0.3s; z-index: 10;
+      position: absolute;
+      top: 20px; left: 20px;
+      background: rgba(0,91,234,0.1);
+      border: 1px solid rgba(0,91,234,0.2);
+      color: #003fa3;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+      z-index: 10;
     }
-    .back-btn:hover { background: rgba(255,255,255,0.22); }
+    .back-btn:hover { background: rgba(0,91,234,0.16); }
     .lb-logo { height: 42px; width: auto; display: inline-block; vertical-align: middle; margin-right: 12px; border-radius: 6px; }
     .lb-header-title { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
-    .lb-brand { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
-    .lb-brand { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
-    .lb-header h1 { color: #fff; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; letter-spacing: -1px; }
-    .lb-header h1 span { color: #93c5fd; }
-    .lb-header p { color: rgba(255,255,255,0.8); margin-top: 10px; font-size: 1rem; }
+    .lb-brand { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(0,63,163,0.64); margin-bottom: 6px; }
+    .lb-logo-word {
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: clamp(8px, 1.4vw, 180px);
+      line-height: 0.9;
+      white-space: nowrap;
+    }
+    .lb-logo-ludo {
+      color: #005bea;
+      font-size: clamp(3.2rem, 5vw, 6.5rem);
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+    .lb-logo-prime {
+      color:#808080;
+      font-size: clamp(3.2rem, 5vw, 6.5rem);
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      transform: translateY(0.0em);
+    }
+    .lb-header p { color: #475569; margin-top: 10px; font-size: 1rem; }
     .lb-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
     .lb-badge {
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
-      color: #fff; padding: 5px 16px; border-radius: 50px; font-size: 0.78rem; font-weight: 600;
+      background: rgba(0,91,234,0.08);
+      border: 1px solid rgba(0,91,234,0.14);
+      color: #003fa3;
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
     }
-    .lb-container { max-width: 1180px; margin: 0 auto; padding: 48px 24px 64px; }
-    .lb-section-title { text-align: center; margin-bottom: 36px; }
-    .lb-section-title h2 { font-size: 1.7rem; font-weight: 800; color: #1a3a6e; }
-    .lb-section-title p { color: #64748b; margin-top: 6px; }
+
+     /* GRID */
+    .lb-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(135deg, rgba(255, 215, 0, 0.16) 0 12%, transparent 12% 100%),
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(255, 215, 0, 0.18), transparent 24%),
+        linear-gradient(135deg, #005bea 0%, #136fe9 48%, #003fa3 100%);
+    }
+    .lb-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    }
+    .lb-container::after {
+      content: '';
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -160px;
+      bottom: -190px;
+      z-index: -1;
+      border-radius: 50%;
+      border: 42px solid rgba(255, 215, 0, 0.18);
+    }
+    .lb-section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .lb-section-title h2 { font-size: 1.7rem; font-weight: 800; color: #fcfcfd; }
+    .lb-section-title p { color: #FFD700; margin-top: 6px; }
+
     .lb-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 24px;
     }
-    @media (max-width: 768px) {
-      .lb-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    }
+    /* CARD */
     .lb-card {
       background: linear-gradient(135deg, #e0eeff, #c7dcff);
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,91,234,0.10);
-      border: 1px solid #e0eeff;
+      border: 2px solid #FDD700;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
-    .lb-card:hover { transform: translateY(-8px); box-shadow: 0 12px 36px rgba(0,91,234,0.18); }
+    .lb-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 36px rgba(0,91,234,0.18);
+    }
     .lb-card-img {
       background: #ffffff;
       height: 260px;
@@ -82,29 +168,95 @@
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
-    .lb-prod-img { width: 100%; height: 100%; object-fit: contain; }
+    .lb-card-img svg { display: none; }
+    .lb-prod-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
     .lb-card-num {
-      position: absolute; top: 10px; left: 12px;
-      background: #005bea; color: #fff;
-      font-size: 0.72rem; font-weight: 700;
-      padding: 3px 10px; border-radius: 50px;
-      letter-spacing: 0.5px;
+      position: absolute;
+      top: 10px; left: 12px;
+      background: #005bea;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
     }
     .lb-card-body { padding: 18px; }
-    .lb-card-body h3 { font-size: 0.98rem; font-weight: 700; color: #1a3a6e; margin-bottom: 6px; }
-    .lb-details { display: flex; flex-direction: column; gap: 3px; margin-bottom: 14px; font-size: 0.82rem; color: #475569; }
+    .lb-card-body h3 { font-size: 0.98rem; font-weight: 700; color: #003fa3; margin-bottom: 6px; }
+    .lb-card-body p { font-size: 0.84rem; color: #64748b; line-height: 1.6; margin-bottom: 14px; }
     .lb-card-footer { display: flex; justify-content: space-between; align-items: center; }
-    .lb-price { font-size: 1.1rem; font-weight: 800; color: #1a6fc4; }
+    .lb-code { font-size: 0.75rem; color: #94a3b8; font-weight: 600; }
     .lb-enquire {
-      padding: 6px 16px; background: #1a6fc4; color: #fff;
-      border-radius: 50px; font-size: 0.78rem; font-weight: 600;
-      text-decoration: none; transition: background 0.3s; cursor: pointer;
+      padding: 6px 16px;
+      background: #005bea;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
     }
-    .lb-enquire:hover { background: #1358a0; }
-    .lb-footer { background: #0a1628; color: rgba(255,255,255,0.7); text-align: center; padding: 20px; font-size: 0.84rem; }
-    .lb-footer a { color: #93c5fd; text-decoration: none; }
-    @media (max-width: 600px) {
-      .lb-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .lb-enquire:hover { background: #003fa3; }
+    .lb-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      color: #475569;
+    }
+    .lb-price {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #005bea;
+    }
+
+    /* WATER ANIMATION */
+    @keyframes flowDown {
+      0%   { transform: translateY(0); opacity: 0.9; }
+      100% { transform: translateY(22px); opacity: 0; }
+    }
+    .water-stream .drop { animation: flowDown 1.1s ease-in infinite; }
+    .water-stream .d1 { animation-delay: 0s; }
+    .water-stream .d2 { animation-delay: 0.35s; }
+    .water-stream .d3 { animation-delay: 0.7s; }
+    @keyframes rainFall {
+      0%   { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(28px); opacity: 0; }
+    }
+    .rain-drops .rdrop { animation: rainFall 0.9s linear infinite; }
+    .rain-drops .r1 { animation-delay: 0s; }
+    .rain-drops .r2 { animation-delay: 0.15s; }
+    .rain-drops .r3 { animation-delay: 0.3s; }
+    .rain-drops .r4 { animation-delay: 0.45s; }
+    .rain-drops .r5 { animation-delay: 0.6s; }
+    .rain-drops .r6 { animation-delay: 0.75s; }
+
+    /* FOOTER */
+    .lb-footer { background: #003fa3; color: rgba(255,255,255,0.75); text-align: center; padding: 20px; font-size: 0.84rem; }
+    .lb-footer a { color: #7dd3fc; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .lb-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .lb-card-img {
+      background: #ffffff;
+      height: 260px;
+      padding: 36px 32px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+      .lb-container { padding: 32px 16px 48px; }
+      .lb-header { padding: 28px 16px 40px; }
+      .lb-header h1 { font-size: 1.8rem; }
+      .back-btn { font-size: 0.78rem; padding: 6px 14px; }
+      .lb-badges { gap: 8px; }
+      .lb-badge { font-size: 0.72rem; padding: 4px 12px; }
+    }
+    @media (max-width: 480px) {
+      .lb-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .lb-card-img {
       background: #ffffff;
       height: 260px;
@@ -113,21 +265,29 @@
       position: relative; overflow: hidden;
     }
       .lb-card-body { padding: 12px; }
-      .lb-card-body h3 { font-size: 0.85rem; }
-      .lb-details { font-size: 0.74rem; }
-      .lb-price { font-size: 0.95rem; }
-      .lb-enquire { padding: 5px 10px; font-size: 0.72rem; }
+      .lb-card-body h3 { font-size: 0.88rem; }
+      .lb-details { font-size: 0.76rem; }
+      .lb-price { font-size: 0.98rem; }
+      .lb-enquire { padding: 5px 12px; font-size: 0.72rem; }
+      .lb-card-num { font-size: 0.7rem; }
+      .lb-header h1 { font-size: 1.5rem; }
+    }
+    @media (max-width: 360px) {
+      .lb-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <div class="lb-header">
-  <a href="1.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</a>
-  <div class="lb-header-title"><p class="lb-brand">FlowGem</p><h1>CLASSIC<span>-M</span> Series</h1></div>
-  <p>Premium PTMT Pillar Tap Collection — 11 Exclusive Variants</p>
+  <a href="1.html" class="back-btn"> Back</a>
+  <div class="lb-header-title">
+    <p class="lb-brand">FlowGem</p>
+    <h1 class="lb-logo-word"><span class="lb-logo-ludo">CLASSIC</span><span class="lb-logo-prime">-M</span></h1>
+  </div>
+  <p>Premium PTMT Bib Cock & Tap Collection All 11 Exclusive Variants</p>
   <div class="lb-badges">
-    <span class="lb-badge"><i class="fa-solid fa-shield-halved"></i> 24 Month Warranty</span>
+    <span class="lb-badge"><i class="fa-solid fa-shield-halved"></i> 36 Month Warranty</span>
     <span class="lb-badge"><i class="fa-solid fa-leaf"></i> Lead-Free PTMT</span>
     <span class="lb-badge"><i class="fa-solid fa-medal"></i> ISO Certified</span>
     <span class="lb-badge"><i class="fa-solid fa-droplet"></i> Water Saving</span>
@@ -136,7 +296,7 @@
 
 <div class="lb-container">
   <div class="lb-section-title">
-    <h2>All 11 Products</h2>
+    <h2>PRODUCT</h2>
     <p>Tap any product to send an enquiry directly on WhatsApp</p>
   </div>
   <div class="lb-grid">
